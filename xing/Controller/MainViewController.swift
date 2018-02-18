@@ -20,7 +20,16 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
-        loadData((Any).self)
+    
+        if isInternetOn(){
+            CoreData.deleteRepos()
+            loadData((Any).self)
+        }else{
+            if let repos = CoreData.readRepos(){
+                self.repositories = repos
+                self.collectionView.reloadData()
+            }
+        }
         navigationItem.title = "XING repository"
     }
 
@@ -34,17 +43,21 @@ final class MainViewController: UIViewController {
     }
     
     @objc func loadData(_ sender: Any){
-        ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
-        page += 1
-        DownloadData.sharedInstance.with(URL: url.repos, page: page, onSuccess: { (repos) in
-            self.isLoading = false
-            for item in repos.repositoriesList!{
-                self.repositories.add(repository: item)
+        if isInternetOn(){
+            ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
+            page += 1
+            DownloadData.sharedInstance.with(URL: url.repos, page: page, onSuccess: { (repos) in
+                self.isLoading = false
+                for item in repos.repositoriesList!{
+                    self.repositories.add(repository: item)
+                }
+                self.collectionView.reloadData()
+                ASProgressHud.hideHUDForView(self.view, animated: true)
+                CoreData.deleteRepos()
+                CoreData.save(repositories: self.repositories)
+            }) { (error) in
+                print(error.localizedDescription)
             }
-            self.collectionView.reloadData()
-            ASProgressHud.hideHUDForView(self.view, animated: true)
-        }) { (error) in
-            print(error.localizedDescription)
         }
     }
 }

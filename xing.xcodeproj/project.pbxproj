@@ -11,6 +11,10 @@
 		7916EE2ECF5F627912FD66CE /* Pods_xingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81971CD26FF13B2B8F1B1D33 /* Pods_xingUITests.framework */; };
 		E57414E5CC270675AF1A03B7 /* Pods_xing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA993201F13AC633AAC95C0 /* Pods_xing.framework */; };
 		FE9E822C2039EF2F00924C89 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9E822B2039EF2E00924C89 /* Repositories.swift */; };
+		FE9E822F203A2D0800924C89 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE9E822D203A2D0800924C89 /* Model.xcdatamodeld */; };
+		FE9E8232203A3A2600924C89 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9E8231203A3A2600924C89 /* CoreData.swift */; };
+		FE9E8234203A3D1800924C89 /* CoreDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9E8233203A3D1800924C89 /* CoreDataParser.swift */; };
+		FE9E8237203A45F500924C89 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9E8236203A45F500924C89 /* Reachability.swift */; };
 		FEB2E1392039E61F00FBC1FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB2E1382039E61F00FBC1FD /* AppDelegate.swift */; };
 		FEB2E13E2039E61F00FBC1FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB2E13C2039E61F00FBC1FD /* Main.storyboard */; };
 		FEB2E1402039E61F00FBC1FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB2E13F2039E61F00FBC1FD /* Assets.xcassets */; };
@@ -54,6 +58,10 @@
 		DCDD92035E62400932CC7470 /* Pods_xingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F988716A9785EF613C282D55 /* Pods-xingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xingUITests/Pods-xingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE9E822B2039EF2E00924C89 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		FE9E822E203A2D0800924C89 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FE9E8231203A3A2600924C89 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		FE9E8233203A3D1800924C89 /* CoreDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataParser.swift; sourceTree = "<group>"; };
+		FE9E8236203A45F500924C89 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FEB2E1352039E61F00FBC1FD /* xing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB2E1382039E61F00FBC1FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEB2E13D2039E61F00FBC1FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +132,23 @@
 				754F7B8DDD256B16548C4A6A /* Pods-xingUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE9E8230203A3A0400924C89 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FE9E8231203A3A2600924C89 /* CoreData.swift */,
+				FE9E8233203A3D1800924C89 /* CoreDataParser.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FE9E8235203A45E900924C89 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				FE9E8236203A45F500924C89 /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		FEB2E12C2039E61F00FBC1FD = {
@@ -201,11 +226,14 @@
 		FEB2E16E2039E9A100FBC1FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE9E8235203A45E900924C89 /* Reachability */,
+				FE9E8230203A3A0400924C89 /* CoreData */,
 				FEB2E16F2039E9BB00FBC1FD /* Repository.swift */,
 				FE9E822B2039EF2E00924C89 /* Repositories.swift */,
 				FEB2E1712039ED1A00FBC1FD /* DownloadData.swift */,
 				FEB2E1732039ED6400FBC1FD /* URLFiles.swift */,
 				FEB2E1752039EDC300FBC1FD /* JsonParser.swift */,
+				FE9E822D203A2D0800924C89 /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,10 +436,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-xing/Pods-xing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ASProgressHud/ASProgressHud.framework",
+				"${BUILT_PRODUCTS_DIR}/IMNetworkReachability/IMNetworkReachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASProgressHud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IMNetworkReachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,11 +537,15 @@
 				FEB2E1742039ED6400FBC1FD /* URLFiles.swift in Sources */,
 				FEB2E1762039EDC300FBC1FD /* JsonParser.swift in Sources */,
 				FEB2E1392039E61F00FBC1FD /* AppDelegate.swift in Sources */,
+				FE9E8232203A3A2600924C89 /* CoreData.swift in Sources */,
 				FEB2E1702039E9BB00FBC1FD /* Repository.swift in Sources */,
 				FE9E822C2039EF2F00924C89 /* Repositories.swift in Sources */,
 				FEB2E1672039E64400FBC1FD /* MainViewController.swift in Sources */,
+				FE9E822F203A2D0800924C89 /* Model.xcdatamodeld in Sources */,
 				FEB2E16C2039E8C500FBC1FD /* MainCollectionViewCell.swift in Sources */,
 				FEB2E1722039ED1A00FBC1FD /* DownloadData.swift in Sources */,
+				FE9E8234203A3D1800924C89 /* CoreDataParser.swift in Sources */,
+				FE9E8237203A45F500924C89 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +843,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FE9E822D203A2D0800924C89 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE9E822E203A2D0800924C89 /* Model.xcdatamodel */,
+			);
+			currentVersion = FE9E822E203A2D0800924C89 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FEB2E12D2039E61F00FBC1FD /* Project object */;
 }
