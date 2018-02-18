@@ -10,4 +10,5 @@ import Foundation
 
 enum url:String{
     case repos = "https://api.github.com/users/xing/repos"
+    case pagination = "?page="
 }

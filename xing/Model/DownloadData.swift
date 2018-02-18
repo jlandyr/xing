@@ -12,9 +12,9 @@ final class DownloadData{
     
     static let sharedInstance = DownloadData()
     
-    func with(URL stringURL: url, onSuccess: @escaping (Repositories) -> Void, onError: ((Error) -> Void)?) {
+    func with(URL stringURL: url, page: Int, onSuccess: @escaping (Repositories) -> Void, onError: ((Error) -> Void)?) {
         let session = URLSession.shared
-        if let url = URL(string: stringURL.rawValue){
+        if let url = URL(string: stringURL.rawValue + url.pagination.rawValue + String(page)){
             let task = session.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
                 OperationQueue.main.addOperation {
                     if error != nil{

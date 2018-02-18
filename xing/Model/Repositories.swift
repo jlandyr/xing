@@ -14,8 +14,8 @@ public protocol RepositoriesProtocol{
     func get(index: Int) -> Repository
 }
 
-final public class Repositories:RepositoriesProtocol{
-    private var repositoriesList: [Repository]?
+class Repositories:RepositoriesProtocol{
+    var repositoriesList: [Repository]?
     
     public init() {
         self.repositoriesList = []

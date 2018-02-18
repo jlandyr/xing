@@ -21,6 +21,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.repo = repo
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastItem = repositories.count() - 1
+        if indexPath.row == lastItem, !isLoading{
+            isLoading = true
+            loadData((Any).self)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         return CGSize(width: collectionView.frame.size.width, height: 80)
