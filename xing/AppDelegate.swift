@@ -11,23 +11,23 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let screenBounds:CGRect = UIScreen.main.bounds
-        self.window = UIWindow(frame: screenBounds)
+        window = UIWindow(frame: screenBounds)
         
         let viewController = MainViewController()
         viewController.view.backgroundColor = UIColor.lightGray
-        let navigation = UINavigationController(rootViewController: viewController);
+        let navigation = UINavigationController(rootViewController: viewController)
         
-        self.window?.rootViewController = navigation;
-        self.window?.makeKeyAndVisible();
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
         return true
     }
-
+    
     //MARK: - CoreData
     lazy var persistentContainer: NSPersistentContainer = {
         

@@ -10,7 +10,7 @@ import UIKit
 import ASProgressHud
 
 final class MainViewController: UIViewController {
-
+    
     var collectionView: UICollectionView!
     lazy var repositories :Repositories = Repositories()
     
@@ -20,19 +20,19 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
-    
+        
         if isInternetOn(){
             CoreData.deleteRepos()
             loadData((Any).self)
         }else{
             if let repos = CoreData.readRepos(){
-                self.repositories = repos
-                self.collectionView.reloadData()
+                repositories = repos
+                collectionView.reloadData()
             }
         }
         navigationItem.title = "XING repository"
     }
-
+    
     private func setUpCollectionView(){
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "cells")
@@ -46,18 +46,20 @@ final class MainViewController: UIViewController {
         if isInternetOn(){
             ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
             page += 1
-            DownloadData.sharedInstance.with(URL: url.repos, page: page, onSuccess: { (repos) in
-                self.isLoading = false
+            DownloadData.sharedInstance.with(URL: url.repos, page: page, onSuccess: {[weak self] (repos) in
+                guard let strongSelf = self else {return}
+                strongSelf.isLoading = false
                 for item in repos.repositoriesList!{
-                    self.repositories.add(repository: item)
+                    strongSelf.repositories.add(repository: item)
                 }
-                self.collectionView.reloadData()
-                ASProgressHud.hideHUDForView(self.view, animated: true)
+                strongSelf.collectionView.reloadData()
+                ASProgressHud.hideHUDForView(strongSelf.view, animated: true)
                 CoreData.deleteRepos()
-                CoreData.save(repositories: self.repositories)
+                CoreData.save(repositories: strongSelf.repositories)
             }) { (error) in
                 print(error.localizedDescription)
             }
         }
     }
 }
+

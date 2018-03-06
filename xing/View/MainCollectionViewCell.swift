@@ -43,7 +43,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
         viewBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         viewBackground.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         viewBackground.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-
+        
         labelRepositoryName.translatesAutoresizingMaskIntoConstraints = false
         labelDescription.translatesAutoresizingMaskIntoConstraints = false
         labelLoginOwner.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,6 @@ final class MainCollectionViewCell: UICollectionViewCell {
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5).isActive = true
         stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
-        
-        
     }
 }
+
